@@ -107,7 +107,7 @@ internal class MavenPublishConfigurer(private val project: Project) : Configurer
   override fun addTaskOutput(task: AbstractArchiveTask) {
     // default artifact should be added as SoftwareComponent
     // TODO this is not really nice and we might need to add Android aars through this
-    if (task.classifier.isBlank()) {
+    if (task.classifier?.isBlank() == true) {
       return
     }
     publication.artifact(task)
